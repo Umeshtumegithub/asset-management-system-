@@ -1,10 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Asset
+
 
 def dashboard(request):
     total = Asset.objects.count()
-    available = Asset.objects.filter(status='Available').count()
-    assigned = Asset.objects.filter(status='Assigned').count()
+    available = Asset.objects.filter(
+        status='Available'
+    ).count()
+
+    assigned = Asset.objects.filter(
+        status='Assigned'
+    ).count()
 
     context = {
         'total': total,
@@ -14,9 +20,16 @@ def dashboard(request):
 
     return render(request, 'dashboard.html', context)
 
+
 def asset_list(request):
     assets = Asset.objects.all()
-    return render(request, 'asset_list.html', {'assets': assets})
+
+    return render(
+        request,
+        'asset_list.html',
+        {'assets': assets}
+    )
+
 
 def add_asset(request):
     if request.method == 'POST':
@@ -26,6 +39,7 @@ def add_asset(request):
             category=request.POST['category'],
             status=request.POST['status']
         )
+
         return redirect('/assets/')
 
     return render(request, 'add_asset.html')
