@@ -1,5 +1,16 @@
+from pathlib import Path
+
+# Base directory
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Security
+SECRET_KEY = 'django-insecure-asset-management-key'
+
+DEBUG = True
+
 ALLOWED_HOSTS = ['*']
 
+# Applications
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -11,6 +22,7 @@ INSTALLED_APPS = [
     'assets',
 ]
 
+# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -22,6 +34,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ROOT_URLCONF = 'asset_management.urls'
+
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -37,5 +52,32 @@ TEMPLATES = [
     },
 ]
 
+# WSGI
+WSGI_APPLICATION = 'asset_management.wsgi.application'
+
+# Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# Password validation
+AUTH_PASSWORD_VALIDATORS = []
+
+# Language and timezone
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'Asia/Kolkata'
+
+USE_I18N = True
+
+USE_TZ = True
+
+# Static files
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Default primary key field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
