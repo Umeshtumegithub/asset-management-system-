@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assets</title>
+</head>
+<body>
+
+<h1>Asset List</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Status</th>
+    </tr>
+
+    {% for asset in assets %}
+    <tr>
+        <td>{{ asset.asset_id }}</td>
+        <td>{{ asset.asset_name }}</td>
+        <td>{{ asset.category }}</td>
+        <td>{{ asset.status }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
