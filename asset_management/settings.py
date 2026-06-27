@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'assets',
+    'assets.apps.AssetsConfig',
 ]
 
 # Middleware
