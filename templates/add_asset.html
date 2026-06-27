@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Asset</title>
+</head>
+<body>
+
+<h1>Add Asset</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <input type="text" name="asset_id" placeholder="Asset ID"><br><br>
+
+    <input type="text" name="asset_name" placeholder="Asset Name"><br><br>
+
+    <input type="text" name="category" placeholder="Category"><br><br>
+
+    <select name="status">
+        <option>Available</option>
+        <option>Assigned</option>
+        <option>Maintenance</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Save</button>
+
+</form>
+
+</body>
+</html>
